@@ -1,0 +1,35 @@
+<style>
+.box-component .box-header {
+  cursor:pointer;
+}
+.box-component i + h3 {
+  padding-left:5px;
+}
+.box-header .fa-caret-up {
+  transition : all 0.24s ease-in-out;
+  -webkit-transition : all 0.24s ease-in-out;
+  -moz-transition : all 0.24s ease-in-out;
+  -o-transition : all 0.24s ease-in-out;
+  -ms-transition : all 0.24s ease-in-out;
+}
+.box-header:hover .fa-caret-up {
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+</style>
+
+<div class="box {{boxStyle}} {{((!boxOpen)?'collapsed-box':'')}} box-component">
+
+    <div class="box-header">
+        <div data-widget="collapse" (click)="arrowOpen=!arrowOpen">
+            <i [ngClass]="{'fa':true, 'fa-caret-up':!arrowOpen, 'fa-caret-down':arrowOpen}"></i>
+            <h3 class="box-title">{{title}}</h3>
+        </div>
+    </div>
+
+    <div class="box-body">
+        <ng-content></ng-content>
+    </div>
+
+</div>

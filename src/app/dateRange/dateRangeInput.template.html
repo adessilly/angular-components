@@ -1,0 +1,11 @@
+<style>
+    .has-error-bottom input {
+        border-bottom-color: #a94442;
+    }
+</style>
+<div class="input-group date" [ngClass]="{'has-error-bottom':hasError}">
+    <input #myDatePicker class="form-control" type="text" [required]="required" [readonly]="readonly">
+    <span class="input-group-addon" (click)="togglePopup()">
+        <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+</div>

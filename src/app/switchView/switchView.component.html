@@ -1,0 +1,129 @@
+<style>
+
+    .sv-box-title-with-icon {
+        z-index:2;
+        position:relative;
+    }
+
+    .sv-box-icon {
+        z-index:1;
+        position: absolute;
+        height: 100%;
+        background: #efefef;
+        color:#333;
+        top: 0px;
+        left: 0px;
+        width: 40px;
+        border-radius: 1px 600px 600px 0px;
+        font-size: 1.3em;
+        vertical-align: middle;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        cursor:pointer;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .box-switch-view:hover .sv-box-icon {
+        width: 50px;
+        background: #3c8dbc;
+        color:white;
+    }
+
+    .sv-box-icon>i {
+        /* vertical-align: middle; */
+        margin: auto;
+    }
+
+    .box-switch-view  .box-header {
+        cursor:pointer;
+    }
+    .box-switch-view  i + h3 {
+        padding-left:5px;
+    }
+    .box-header .fa-caret-up {
+        transition : all 0.24s ease-in-out;
+        -webkit-transition : all 0.24s ease-in-out;
+        -moz-transition : all 0.24s ease-in-out;
+        -o-transition : all 0.24s ease-in-out;
+        -ms-transition : all 0.24s ease-in-out;
+    }
+    .box-header:hover .fa-caret-up {
+        -ms-transform: rotate(180deg); /* IE 9 */
+        -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+        transform: rotate(180deg);
+    }
+
+    .box-switch-view .icon-not-hover, .box-switch-view:hover .icon-on-hover {
+        display:block;
+    }
+
+    .box-switch-view:hover .icon-not-hover, .box-switch-view .icon-on-hover {
+        display:none;
+    }
+
+    .box-switch-view.box-switch-view-no-border, .box-switch-view-form.box-switch-view-no-border {
+        border:none;
+        box-shadow:none;
+    }
+    .box.box-switch-view-form.box-switch-view-no-border {
+        margin-bottom:0px;
+    }
+</style>
+
+<div *ngIf="modeBandeau == true" class="box box-switch-view {{boxStyle}} {{((!boxOpen)?'collapsed-box':'')}}">
+<!--div *ngIf="modeBandeau == true" class="box box-switch-view {{boxStyle}} {{((!boxOpen)?'collapsed-box':'')}}"-->
+
+    <div class="box-header with-border">
+
+        <div data-widget="collapse" (click)="toggleBoxArrow()" class=" sv-box-title-with-icon">
+            <i [ngClass]="{'fa':true, 'fa-caret-up':!arrowOpen, 'fa-caret-down':arrowOpen}"></i>
+            <h3 class="box-title">{{title}}</h3>
+        </div>
+
+        <div class="box-tools pull-right">
+            <!--button type="button" class="btn btn-box-tool">
+                <i [ngClass]="{'fa':true, 'fa-plus':!boxOpen, 'fa-minus':boxOpen}"></i>
+            </button-->
+            <button type="button" class="btn btn-box-tool" style="position:relative;z-index:100;" (click)="edit()"><i class="fa fa-pencil"></i> Editer</button>
+        </div>
+    </div>
+
+    <div class="box-body" style="position:relative;">
+
+        <div class="sv-box-icon hidden-xs" *ngIf="icon != ''" (click)="edit()">
+            <i [ngClass]="icon+' icon-not-hover'"></i>
+            <i class="fa fa-pencil-square-o icon-on-hover"></i>
+        </div>
+
+        <ng-content></ng-content>
+    </div>
+</div>
+
+<!--<div class="col-md-12 no-padding" *ngIf="modeBandeau == false">-->
+<div [hidden]="modeBandeau" class="col-md-12 no-padding">
+    <!--Identification-->
+    <!--div class="col-md-12"--><!--ne mettre qu'un seul cadre, si le parent en veut 2, il peut en ajouter, mais ne sait pas en retirer-->
+        <div class="box box-primary box-switch-view-form {{boxStyleForm}}">
+            <div class="box-header">
+                <h4 class="box-title">{{title}}</h4>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus text-primary"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="box-body">
+                <form [formGroup]="formGroupInline" autocomplete="on" novalidate>
+                    <div #bodyBoxFormulaire>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!--/div-->
+</div>

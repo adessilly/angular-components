@@ -1,0 +1,10 @@
+<div class = "form-group select2-component {{simpleMode ? 'col-sm-'+width : width}}">
+  <div  [ngClass]="{'has-error-bottom':hasError}">
+
+    <label  class="control-label" attr.for="{{id}}">{{(required) ? label + ' *': label}}</label>
+    <span style="display:block;text-align:left;font-style: italic;" *ngIf="message != null">{{message}}</span>
+
+    <select #select2 class="form-control" id="{{id}}" [required]="required" [disabled]="readonly"></select>
+
+  </div>
+</div>

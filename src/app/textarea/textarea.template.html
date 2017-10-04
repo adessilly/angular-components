@@ -1,0 +1,19 @@
+<style>
+    .has-error-bottom textarea {
+        border-bottom-color: #a94442;
+    }
+</style>
+<div class = "form-group {{simpleMode ? 'col-sm-'+width : width}}">
+    <div  [ngClass]="{'has-error-bottom':hasError}">
+
+        <label  class="control-label" attr.for="{{id}}">{{(required) ? label + ' *': label}}</label>
+
+        <span style="display:block;text-align:left;font-style: italic;" *ngIf="message != null">{{message}}</span>
+
+        <textarea class="form-control" id="{{id}}" placeholder="{{placeholder}}"
+               [ngModel]="ngValue" (ngModelChange)="updateData($event)"
+               [required]="required" [readonly]="readonly"
+               [rows]="rows" #inputText></textarea>
+
+    </div>
+</div>

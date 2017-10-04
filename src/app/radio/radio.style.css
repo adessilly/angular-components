@@ -1,0 +1,51 @@
+/*
+  Définition basique d'un bouton radio, sa forme et sa façon de s'afficher un point qd il est selected.
+  La partie couleur est définie par le thème
+*/
+.component-radio {
+  position:relative;
+}
+.component-radio button {
+  position:absolute;
+  display:inline-block;
+  border-radius:50%;
+  top:4px;
+  height:20px;
+  width:20px;
+  outline:none;
+  border:4px solid gray;
+  background-color:white;
+  content:' ';
+}
+.component-radio button:focus {
+  border:4px solid gray;
+}
+.component-radio button.radio-selected {
+  background:white;
+}
+.component-radio button.radio-disabled {
+  background:gray;
+}
+.component-radio button>.circle-checked {
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:6px;
+  height:6px;
+  background:gray;
+  border-radius:50%;
+  margin:0;
+  padding:0;
+}
+.component-radio button>.circle-checked {
+  display:none;
+}
+.component-radio button.radio-selected>.circle-checked {
+  display:block;
+}
+.component-radio>span {
+  display:block;
+  margin-left:25px;
+  padding-top:4px;
+  padding-bottom:4px;
+}

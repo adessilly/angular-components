@@ -1,0 +1,23 @@
+<style>
+    :host >>> .icheckbox_square-blue.focus:not(.checked) {
+        background-position: -24px 0;
+    }
+    /*:host >>> .icheckbox_flat.focus.checked {*/
+        /*background-position: -48px 0;*/
+    /*}*/
+</style>
+<div class = "form-group {{simpleMode ? 'col-sm-'+width : width}}">
+
+    <div [ngClass]="{'has-error':hasError, 'checkbox':true, 'icheck':true}">
+            <span style="display:block;text-align:left;font-style: italic;" *ngIf="message != null">{{message}}</span>
+            <input type="checkbox" id="{{id}}" #icheckElement
+                   [checked]="ngValue" (click)="switchValue()"
+                   [readonly]="readonly"/>
+            <label class="control-label" attr.for="{{id}}">
+                <div *ngIf="label != null">{{label}}</div>
+                <ng-content></ng-content>
+            </label>
+
+    </div>
+
+</div>

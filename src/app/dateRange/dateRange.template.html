@@ -1,0 +1,16 @@
+<div class = "form-group {{simpleMode ? 'col-sm-'+width : width}}">
+<div>
+    <label attr.for="{{id}}" class="control-label">{{(required) ? label + ' *': label}}</label>
+    <span *ngIf="message != null" style="display:block;font-style:italic;">{{message}}</span>
+
+    <daterangeinput-component
+            [(ngModel)]="innerDate"
+            [required]="required"
+            [readonly]="readonly"
+            [hasError]="hasError"
+            (ngModelChange)="onChange($event)"
+            (touchedChange)="onTouch($event)">
+    </daterangeinput-component>
+
+</div>
+</div>

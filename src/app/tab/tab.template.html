@@ -1,0 +1,9 @@
+<div class="col-md-{{inputWidth}} component-tab" [ngClass]="{'tab-selected': isChecked}">
+    <button type="button" class="btn btn-flat btn-lg faa-parent animated-hover" style="width:100%;"
+            (click)="tabClicked($event)" [ngClass]="{'btn-info': isChecked}">
+        <ng-content></ng-content>
+    </button>
+    <div class="puce">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </div>
+</div>

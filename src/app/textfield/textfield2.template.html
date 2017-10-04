@@ -1,0 +1,10 @@
+<div [ngClass]="{'form-group':true, 'has-error':hasError}">
+
+    <label attr.for="{{id}}" class="col-sm-{{labelWidth}} control-label">{{(required) ? label + ' *': label}}</label>
+
+    <div class="col-sm-{{inputWidth}}">
+        <input type="text" class="form-control" id="{{id}}" (checked)="ngValue == value" placeholder="{{placeholder}}" [ngModel]="ngValue" (ngModelChange)="updateData($event)" [required]="required" [readonly]="readonly">
+        <label *ngIf="message != null" class="control-label">{{message}}</label>
+    </div>
+
+</div>

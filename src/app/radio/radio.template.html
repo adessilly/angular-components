@@ -1,0 +1,24 @@
+<div class = "form-group checkbox-group {{simpleMode ? 'col-sm-'+width : width}}">
+    <div [ngClass]="{'has-error':hasError}">
+        <label class="control-label">{{(label != '' && label != null && required) ? label + ' *': label}}</label>
+        <span *ngIf="message != null" style="display:block;font-style:italic;"><span [ngClass]="{'text-danger':hasError}">{{message}}</span></span>
+
+        <div class="radio-button-flat component-radio radio-default">
+            <button name="name" (click)="radioButtonClicked($event)" [ngClass]="{'radio-selected': isChecked, 'radio-disabled' : disabled}" [disabled]="readonly">
+                <div class="circle-checked"></div>
+            </button>
+
+          <span [ngClass]="{'faa-parent':true, 'animated-hover':true, 'text-danger':hasError}">
+              <!--
+              ng-content : contenu html injecté provenant du innerHTML du composant parent
+              <radio-component ...>  Radio val <strong>1</strong>  </radio-component>
+              => ici, ng-content = "Radio val <strong>1</strong>"
+              -->
+              <ng-content></ng-content>
+                <!--label *ngIf="(label == '' || label == null) && required">*</label-->
+          </span>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "version": "1.33",
+    "name": "angular2-components"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "mobile": false,
+      "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css",
+        "../node_modules/bootstrap-select/dist/css/bootstrap-select.css",
+        "../node_modules/bootstrap-daterangepicker/daterangepicker.css",
+        "../node_modules/select2/dist/css/select2.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/font-awesome-animation/dist/font-awesome-animation.min.css",
+        "../node_modules/ionicons/dist/css/ionicons.min.css",
+        "../node_modules/icheck/skins/minimal/_all.css",
+        "../node_modules/icheck/skins/square/_all.css",
+        "../node_modules/icheck/skins/flat/_all.css",
+        "../node_modules/icheck/skins/line/_all.css",
+        "../node_modules/icheck/skins/polaris/polaris.css",
+        "../node_modules/icheck/skins/futurico/futurico.css",
+        "../node_modules/select2/dist/css/select2.css",
+        "../node_modules/animate.css/animate.min.css",
+        "../node_modules/admin-lte/dist/css/AdminLTE.min.css",
+        "../node_modules/admin-lte/dist/css/skins/skin-blue.css",
+        "../node_modules/highlightjs/styles/github.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/moment/min/moment-with-locales.min.js",
+        "../node_modules/bootstrap/js/transition.js",
+        "../node_modules/bootstrap/js/collapse.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
+        "../node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js",
+        "../node_modules/bootstrap-daterangepicker/daterangepicker.js",
+        "../node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js",
+        "../node_modules/icheck/icheck.js",
+        "../node_modules/wow/dist/wow.min.js",
+        "../node_modules/select2/dist/js/select2.full.min.js",
+        "../node_modules/admin-lte/dist/js/adminlte.js",
+        "../node_modules/highlightjs/highlight.pack.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "addons": [],
+  "packages": [],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {
+      "inlineTemplate": false,
+      "spec": true
+    }
+  }
+}

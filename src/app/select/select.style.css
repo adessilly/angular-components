@@ -1,0 +1,26 @@
+/*
+http://stackoverflow.com/questions/34542143/load-external-css-style-into-angular-2-component
+"shadow piercing"
+You can also use shadow piercing CSS combinator >>> (alias /deep/) to build selectors that cross component boundaries like
+
+:host >>> .ng-invalid {
+  border-bottom: solid 3px red;
+}
+which styles all tags with a class ng-invalid in the current component or any descendant with a red underline no matter if encapsulation is None or Emulated. It depends on browser support whether >>> works with Native.
+*/
+
+:host >>> .select2-selection--multiple {
+  padding-bottom:5px;
+}
+
+:host >>> .select2-search__field:focus {
+  border:none;
+}
+
+:host >>> .has-error-bottom .select2-selection {
+  border-bottom-color: #a94442 !important;
+}
+
+:host >>> .select2-container--focus .select2-selection {
+  border-color:#3c8dbc;
+}

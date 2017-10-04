@@ -1,0 +1,110 @@
+.component-tab button {
+    transition : all 0.3s 0s linear;
+    -webkit-transition : all 0.3s 0s linear;
+    -moz-transition : all 0.3s 0s linear;
+    -o-transition : all 0.3s 0s linear;
+    -ms-transition : all 0.3s 0s linear;
+    border:none;
+    background:rgb(221,221,221);
+}
+
+.component-tab button:hover, .component-tab.tab-selected button {
+    background:#00c0ef;
+    color:white;
+}
+
+.component-tab {
+    position:relative;
+}
+
+.component-tab .btn-info {
+    border:none;
+}
+
+.component-tab .btn {
+    border-radius: 3px 3px 0px 0px;
+}
+
+.component-tab .puce {
+    transition : all 0.3s 0s linear;
+    -webkit-transition : all 0.3s 0s linear;
+    -moz-transition : all 0.3s 0s linear;
+    -o-transition : all 0.3s 0s linear;
+    -ms-transition : all 0.3s 0s linear;
+    position: absolute;
+    bottom: -11px;
+    margin: auto;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    color: #dddddd;
+    margin-left:-14px;
+}
+
+.component-tab:hover .puce, .component-tab.tab-selected .puce {
+    bottom: -13px;
+}
+
+.component-tab .btn-info+.puce, .component-tab .btn-info:focus:hover+.puce, .component-tab button:hover+.puce {
+    color: #00c0ef;
+}
+.component-tab .btn-info:focus+.puce {
+    color: #31b0d5;
+}
+
+
+
+
+/* INFOBULLE */
+
+.content-info-perso {
+    padding:20px;
+    background:#d2d6de;
+    margin-bottom:20px;
+}
+
+
+
+.content-info-perso h2 {
+    margin-top:0px;
+    font-size:1.4em;
+    padding-bottom:5px;
+    border-bottom:1px solid #efefef;
+    padding-top:20px;
+}
+
+.content-info-perso h2.first-title {
+    padding-top:0px;
+}
+
+
+.content-info-perso>div>i {
+    display:inline-block;
+    width:25px;
+}
+
+.infobulle-tab {
+    position:absolute;
+    bottom:-22px;
+    left:20px;
+    background:#444;
+    opacity:0;
+    padding:5px;
+    z-index:900;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -ms-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    font-size:0.7em;
+}
+
+button:hover>.infobulle-tab {
+    opacity:0.95;
+    color:white;
+}
