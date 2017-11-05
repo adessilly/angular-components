@@ -1,3 +1,5 @@
+
+
 // Dépendances
 import { NgModule }           from '@angular/core';
 import { CommonModule }       from '@angular/common';
@@ -30,9 +32,11 @@ import {DateRangeInputComponent} from "../dateRange/dateRangeInput.component";
   imports: [
       CommonModule, FormsModule, ReactiveFormsModule
   ],
-  declarations: [ SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent, LoadingComponent, LoadableDirective, RadioComponent, DateComponent, TabComponent, TextareaComponent, CheckboxComponent, NumericComponent, ShowResumePipe, BoxComponent, ModalComponent, BeanFormulaireComponent],
-  exports: [ SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent, LoadingComponent, LoadableDirective, RadioComponent, DateComponent, TabComponent, TextareaComponent, CheckboxComponent, NumericComponent, ShowResumePipe, BoxComponent, ModalComponent, BeanFormulaireComponent],
+  declarations: [ /* SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent, LoadingComponent, LoadableDirective, RadioComponent, DateComponent, TabComponent, TextareaComponent, CheckboxComponent, NumericComponent, ShowResumePipe, BoxComponent, ModalComponent, BeanFormulaireComponent */ ],
+  exports: [ /* SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent, LoadingComponent, LoadableDirective, RadioComponent, DateComponent, TabComponent, TextareaComponent, CheckboxComponent, NumericComponent, ShowResumePipe, BoxComponent, ModalComponent, BeanFormulaireComponent */],
   providers: [SharedService],
   entryComponents: [BeanFormulaireComponent]
 })
 export class Angular2ComponentsModule {}
+
+

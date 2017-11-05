@@ -1,19 +1,19 @@
 import {Component, AfterContentInit, OnInit} from '@angular/core';
 
 import {RadioService} from '../radio/radio.service';
-import {Select2Element} from "../select/select2Element.interface";
+import {Select2Element} from '../select/select2Element.interface';
 import {TabService} from '../tab/tab.service';
 import {Observable} from 'rxjs/Observable'
-import {Model} from "./model";
-import {FormGroup, Validators, FormBuilder} from "@angular/forms";
-import {BeanFormulaireComponent} from "./bandeaux/beanFormulaire.component";
-import {DateRangeWithOptions} from "../dateRange/dateRange";
-import {BaseModal} from "../switchView/baseModal";
+import {Model} from './model';
+import {FormGroup, Validators, FormBuilder} from '@angular/forms';
+import {BeanFormulaireComponent} from './bandeaux/beanFormulaire.component';
+import {DateRangeWithOptions} from '../dateRange/dateRange';
+import {BaseModal} from '../switchView/baseModal';
 
 declare var $: any;
 declare var hljs: any;
 declare var WOW: any;
-declare var moment:any;
+declare var moment: any;
 
 @Component({
     selector: 'library-tester',
@@ -22,21 +22,21 @@ declare var moment:any;
 })
 export class DesignComponent implements AfterContentInit, OnInit {
 
-    valuefieldTextfield: string = 'Valeur préinit';
-    valuefieldTextarea: string = 'Valeur préinit';
-    valuefieldSelect:Select2Element = {id:'-1', text:''};
-    valuefieldSelect2:string = 'bbbbb';
-    valuefieldRadio: string = '1';
-    valuefieldRadio2: string = '2';
-    valuefieldTab:number;
+    valuefieldTextfield = 'Valeur préinit';
+    valuefieldTextarea = 'Valeur préinit';
+    valuefieldSelect: Select2Element = {id: '-1', text: ''};
+    valuefieldSelect2 = 'bbbbb';
+    valuefieldRadio = '1';
+    valuefieldRadio2 = '2';
+    valuefieldTab: number;
     valuefieldDate: Date;
-    valuefieldCheckbox:boolean = true;
-    valuefieldCheckbox2: boolean = false;
-    valuefieldNumeric:number = 1;
-    valueLongText:String = 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.';
-    testValue:number = 0;
+    valuefieldCheckbox = true;
+    valuefieldCheckbox2 = false;
+    valuefieldNumeric = 1;
+    valueLongText = 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia.';
+    testValue = 0;
 
-    valueDateRange:DateRangeWithOptions = new DateRangeWithOptions();
+    valueDateRange: DateRangeWithOptions = new DateRangeWithOptions();
 
     adrien = {id:'0', name:'Adrien'};
     maryline = {id:'4', name:'Maryline'};
@@ -79,7 +79,7 @@ export class DesignComponent implements AfterContentInit, OnInit {
     model: Model = new Model();
 
     beanFormulaireComponentClass: any = null;
-    modeBandeau: boolean = true;
+    modeBandeau = true;
 
     constructor() {
         this.beanFormulaireComponentClass = BeanFormulaireComponent;
