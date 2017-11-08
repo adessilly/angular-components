@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "noStrictGenericChecks": true,
-    "lib": [
-      "es2016",
-      "dom"
-    ],
-    "outDir": "../out-tsc/app",
-    "target": "es5",
+    "declaration": true,
     "module": "es2015",
-    "baseUrl": "",
+    "target": "es2015",
+    "baseUrl": ".",
+    "stripInternal": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "outDir": "../dist",
+    "rootDir": ".",
+    "lib": ["es2015", "dom"],
+    "skipLibCheck": true,
     "types": []
   },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+  "files": [
+    "./index.ts"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "angular-components-lib.js",
+    "flatModuleId": "angular-components-lib"
+  }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "angular-components-lib",
+  "author": "Adrien Dessilly",
+  "version": "1.0.0",
+  "license": "MIT",
+  "module": "angular-components-lib.es5.js",
+  "es2015": "angular-components-lib.js",
+  "typings": "angular-components-lib.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "admin-lte": "2.4.2",
+    "bootstrap": "^3.3.7",
+    "bootstrap-daterangepicker": "^2.1.25",
+    "bootstrap-select": "^1.12.4",
+    "bootstrap-switch": "^3.3.4",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "icheck": "1.0.2",
+    "ionicons": "3.0.0",
+    "jquery": "3.2.1",
+    "jquery.inputmask": "^3.3.4",
+    "moment": "^2.19.1",
+    "rxjs": "^5.5.2",
+    "ts-helpers": "^1.1.2"
+  }
+}

@@ -1,11 +1,7 @@
-
-
 // Dépendances
 import { NgModule }           from '@angular/core';
 import { CommonModule }       from '@angular/common';
 import {FormsModule, ReactiveFormsModule}        from '@angular/forms';
-
-
 // Composants qui seront automatiquement importés par le module
 import { LoadingComponent }     from '../loadable/loading.component';
 import { LoadableDirective }    from '../loadable/loadable.directive';
@@ -22,29 +18,28 @@ import {SelectComponent} from '../select/select.component';
 import {BoxComponent} from '../box/box.component';
 import {SharedService} from '../switchView/shared.service';
 import {ModalComponent} from '../switchView/modal.component';
-import {BeanFormulaireComponent} from '../design/bandeaux/beanFormulaire.component';
 import {SwitchViewComponent} from '../switchView/switchView.component';
 import {DateRangeComponent} from '../dateRange/dateRange.component';
 import {DateRangeInputComponent} from '../dateRange/dateRangeInput.component';
-
+import {SwitchViewModule} from '../switchView/switchView.module';
 
 @NgModule({
   imports: [
-      CommonModule, FormsModule, ReactiveFormsModule
+      CommonModule, FormsModule, ReactiveFormsModule, SwitchViewModule
   ],
-  declarations: [ SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent,
+  declarations: [ SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent,
       DatePickerComponent,
       LoadingComponent, LoadableDirective, RadioComponent, DateComponent, TabComponent, TextareaComponent, CheckboxComponent,
       NumericComponent,
-      ShowResumePipe, BoxComponent, ModalComponent, BeanFormulaireComponent],
-  exports: [ SwitchViewComponent, SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent,
+      ShowResumePipe, BoxComponent, ModalComponent],
+  exports: [ SelectComponent, TextfieldComponent, DateRangeComponent, DateRangeInputComponent, DatePickerComponent,
       LoadingComponent,
       LoadableDirective, RadioComponent, DateComponent,
       TabComponent, TextareaComponent, CheckboxComponent, NumericComponent, ShowResumePipe,
       BoxComponent,
-      ModalComponent, BeanFormulaireComponent],
+      ModalComponent],
   providers: [SharedService],
-  entryComponents: [BeanFormulaireComponent]
+  entryComponents: []
 })
 export class Angular2ComponentsModule {}
 
