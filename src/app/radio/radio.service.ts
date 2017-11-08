@@ -1,7 +1,5 @@
 import { Injectable }       from '@angular/core';
 import { RadioListener }    from './radioListener.interface';
-import { Observable }       from "rxjs";
-import {Http} from "@angular/http";
 
 /**
 Classe servant de singleton observer-observable.

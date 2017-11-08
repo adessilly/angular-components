@@ -41,6 +41,6 @@ import {SwitchViewModule} from '../switchView/switchView.module';
   providers: [SharedService],
   entryComponents: []
 })
-export class Angular2ComponentsModule {}
+export class AngularComponentsModule {}
 
 

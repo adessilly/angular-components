@@ -1,7 +1,7 @@
 {
   "name": "angular-components-lib",
   "author": "Adrien Dessilly",
-  "version": "2.0.9",
+  "version": "2.0.22",
   "license": "MIT",
   "module": "angular-components-lib.es5.js",
   "es2015": "angular-components-lib.js",
@@ -11,7 +11,6 @@
     "admin-lte": "2.4.2",
     "bootstrap": "^3.3.7",
     "bootstrap-daterangepicker": "^2.1.25",
-    "bootstrap-select": "^1.12.4",
     "bootstrap-switch": "^3.3.4",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "icheck": "1.0.2",
