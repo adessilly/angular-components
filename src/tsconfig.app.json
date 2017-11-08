@@ -19,7 +19,7 @@
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
-    "skipTemplateCodegen": true,
+    "skipTemplateCodegen": false,
     "flatModuleOutFile": "angular-components-lib.js",
     "flatModuleId": "angular-components-lib"
   }
