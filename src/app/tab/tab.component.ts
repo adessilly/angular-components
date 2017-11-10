@@ -6,7 +6,6 @@ import {
     AfterContentInit,
     OnChanges,
     SimpleChanges,
-    Inject,
     ElementRef
 } from '@angular/core';
 import {TabListener} from './tabListener.interface';
@@ -24,23 +23,16 @@ import {TabService} from './tab.service';
 })
 export class TabComponent implements TabListener, AfterContentInit, OnChanges {
 
-    @Input()
-    width: number;
-    @Input()
-    label: string;
-    @Input()
-    name: string;
-    @Input()
-    value: string;
-    @Input()
-    ngValue: any;
-    @Input()
-    disabled: boolean = false;
-    @Output()
-    ngValueChange: any = new EventEmitter();
+    @Input() width: number;
+    @Input() label: string;
+    @Input() name: string;
+    @Input() value: string;
+    @Input() ngValue: any;
+    @Input() disabled = false;
+    @Output() ngValueChange: any = new EventEmitter();
 
-    inputWidth: number = 12;
-    isChecked: boolean = false;
+    public inputWidth = 12;
+    public isChecked = false;
 
     // Va permettre d'injecter radioService
     // RadioService va faire le lien entre les radio de groupe identique
@@ -51,10 +43,10 @@ export class TabComponent implements TabListener, AfterContentInit, OnChanges {
     // @Override AfterContentInit
     ngAfterContentInit() {
 
-        if(this.width) {
+        if (this.width) {
             this.inputWidth = this.width;
         } else {
-            let nbTabs = document.querySelectorAll('tab-component[name='+ this.name + ']').length;
+            let nbTabs = document.querySelectorAll('tab-component[name=' + this.name + ']').length;
             this.inputWidth = Math.floor(12 / nbTabs);
         }
 
@@ -75,7 +67,7 @@ export class TabComponent implements TabListener, AfterContentInit, OnChanges {
     // on change RADIO COMPOSANT -> PARENT COMPOSANT
     // @Override RadioListener
     notifyTabChanged(tabListener: TabListener) {
-        this.isChecked = tabListener == this;
+        this.isChecked = tabListener === this;
         // Répercuter la valeur chez le parent
         if (this.isChecked) {
             this.ngValue = this.value;
@@ -93,7 +85,7 @@ export class TabComponent implements TabListener, AfterContentInit, OnChanges {
     }
 
     refreshTab() {
-        if (this.ngValue == this.value) {
+        if (this.ngValue === this.value) {
             this.tabService.notifyObservers(this);
         }
     }

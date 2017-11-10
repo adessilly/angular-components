@@ -4,9 +4,6 @@ import {
 
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-declare var moment: any;
-declare var $: any;
-
 /*
  @author Adrien DESSILLY
  */
@@ -35,7 +32,7 @@ export class DateComponent implements AfterContentInit, ControlValueAccessor {
 
     public innerDate: Date;
     public onChangeCallback: any;
-    public onTouchedCallback : any;
+    public onTouchedCallback: any;
     public simpleMode = true;
 
     constructor(private element: ElementRef) {}
@@ -46,20 +43,18 @@ export class DateComponent implements AfterContentInit, ControlValueAccessor {
 
     // Ici, il faut setter la date et notifier le datepicker
     setValueFromParent(v: Date) {
-        //console.log('setValueFromParent', v);
         this.innerDate = v;
     }
 
     // Ici, il faut setter la date et notifier le parent
     setValueFromDatepicker(v: Date) {
-        //console.log('setValueFromDatepicker', this.innerDate);
-        if(this.onChangeCallback) {
+        if (this.onChangeCallback) {
             this.onChangeCallback(this.innerDate);
         }
     }
 
     ngAfterContentInit() {
-        if (this.width && this.width.substring(0, 3) == 'col') {
+        if (this.width && this.width.substring(0, 3) === 'col') {
             this.simpleMode = false;
         }
     }
@@ -70,7 +65,6 @@ export class DateComponent implements AfterContentInit, ControlValueAccessor {
 
     // @Override ControlValueAccessor
     writeValue(v: any) {
-        //console.log('writeValue', v);
         this.setValueFromParent(v);
     }
 

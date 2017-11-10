@@ -26,14 +26,14 @@ export class BaseModal {
             let val = {};
 
             // attention, on doit fournir au formGroup un objet qui contient des proprios pour chaque controls du formGroup
-            for (var prop in this.formGroup.controls) {
+            for (let prop in this.formGroup.controls) {
                 val[prop] = null;
             }
 
             // parcourir les originalData pour ne recopier que les propriétés qui existent dans formGroup
-            for (var prop in originalData) {
+            for (let prop in originalData) {
                 if (this.formGroup.value.hasOwnProperty(prop)) {
-                    val[prop] = (originalData[prop] != undefined && originalData[prop] != null) ? originalData[prop] : null;
+                    val[prop] = (originalData[prop] !== undefined && originalData[prop] != null) ? originalData[prop] : null;
                 }
             }
 

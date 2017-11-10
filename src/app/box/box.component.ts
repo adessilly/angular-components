@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from '@angular/core';
 /**
  @author phw
  */
@@ -8,21 +8,16 @@ import {Component, Input, OnInit} from "@angular/core";
 })
 export class BoxComponent implements OnInit{
 
-    @Input()
-    title: string;
+    @Input() title: string;
+    @Input() boxOpen = true;
+    @Input() boxStyle = 'box-default';
 
-    @Input()
-    boxOpen:boolean = true;
+    public arrowOpen = true;
 
-    @Input()
-    boxStyle:string = "box-default";
-
-    arrowOpen:boolean = true;
-
-    constructor() {
-    }
+    constructor() {}
 
     ngOnInit() {
         this.arrowOpen = this.boxOpen;
     }
+
 }

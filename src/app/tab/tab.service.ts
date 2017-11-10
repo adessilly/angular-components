@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-
-import { TabListener } from './tabListener.interface';
+import {Injectable} from '@angular/core';
+import {TabListener} from './tabListener.interface';
 
 /**
  Classe servant de singleton observer-observable.
@@ -10,27 +9,27 @@ import { TabListener } from './tabListener.interface';
 @Injectable()
 export class TabService {
 
-    private listeners:TabListener[] = [];
+    private listeners: TabListener[] = [];
 
-    register(listener:TabListener) {
+    register(listener: TabListener) {
         this.listeners.push(listener);
     }
 
-    cancel(tabListener:TabListener) {
-        var i:number = 0;
-        for(var listener of this.listeners) {
-            if(listener == tabListener) {
-                this.listeners.splice(i , 1);
+    cancel(tabListener: TabListener) {
+        let i = 0;
+        for (let listener of this.listeners) {
+            if (listener === tabListener) {
+                this.listeners.splice(i, 1);
             }
             i++;
         }
     }
 
-    notifyObservers(tabListener:TabListener) {
-        for(var listener of this.listeners) {
-            if(tabListener.getName() == listener.getName())
+    notifyObservers(tabListener: TabListener) {
+        for (let listener of this.listeners) {
+            if (tabListener.getName() === listener.getName()) {
                 listener.notifyTabChanged(tabListener);
+            }
         }
     }
-
 }

@@ -1,10 +1,8 @@
 import {
-    Component, Input, Output, EventEmitter, AfterContentInit, QueryList, ViewChildren,
-    ElementRef, AfterViewInit, DoCheck, forwardRef, ViewChild
+    Component, Input, AfterContentInit,
+    AfterViewInit, DoCheck, forwardRef, ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
-
-declare var $: any;
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 /**
  @author phw
@@ -20,41 +18,32 @@ declare var $: any;
 })
 export class CheckboxComponent implements AfterContentInit, AfterViewInit, DoCheck, ControlValueAccessor {
 
-    @Input()
-    id:string='';
-
-    @Input()
-    width:string = "12";
-    @Input()
-    placeholder:string;
-    @Input()
-    label:string;
-    @Input()
-    readonly:boolean = false;
-    @Input()
-    hasError:boolean = false;
-    @Input()
-    message:string;
+    @Input() id = '';
+    @Input() width = '12';
+    @Input() placeholder: string;
+    @Input() label: string;
+    @Input() readonly = false;
+    @Input() hasError = false;
+    @Input() message: string;
 
     @ViewChild('icheckElement')
-    icheckChildren:any;
-    icheckElement:any = null;
+    icheckChildren: any;
+    icheckElement: any = null;
 
     public onChangeCallback: any;
     public onTouchedCallback: any;
-    public ngValue:boolean;
+    public ngValue: boolean;
 
-    public simpleMode: boolean = true;
+    public simpleMode = true;
 
-    constructor() {
-    }
+    constructor() {}
 
-    setValueFromComponent(v:boolean) {
+    setValueFromComponent(v: boolean) {
         this.ngValue = v;
         this.onChangeCallback(v);
     }
 
-    setValueFromParent(v:boolean) {
+    setValueFromParent(v: boolean) {
         this.ngValue = v;
         this.ngDoCheck();
     }
@@ -75,7 +64,7 @@ export class CheckboxComponent implements AfterContentInit, AfterViewInit, DoChe
     }
 
     ngAfterContentInit() {
-        if (this.width && this.width.substring(0, 3) == "col") {
+        if (this.width && this.width.substring(0, 3) === 'col') {
             this.simpleMode = false;
         }
 
@@ -84,38 +73,38 @@ export class CheckboxComponent implements AfterContentInit, AfterViewInit, DoChe
         };
     }
 
-    ngAfterViewInit(){
+    ngAfterViewInit() {
         this.createICheck();
     }
 
-    getICheckElement(){
-        return $([this.icheckChildren.nativeElement]);
+    getICheckElement() {
+        return jQuery([this.icheckChildren.nativeElement]);
     }
 
     createICheck() {
         this.icheckElement = this.getICheckElement();
 
-        var elem:any = this.icheckElement;
-        var self = this;
+        const elem: any = this.icheckElement;
+        const self = this;
 
         elem.iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
             increaseArea: '20%'
-        }).on('ifToggled', function(event){
+        }).on('ifToggled', function(event) {
             self.switchValue();
         });
     }
 
-    //le OnChanges intervient trop tôt, utiliser le DoCheck
+    // le OnChanges intervient trop tôt, utiliser le DoCheck
     ngDoCheck() {
-        if (this.icheckElement){
+        if (this.icheckElement) {
             this.icheckElement.iCheck('update');
         }
     }
 
-    switchValue(){
-        if (this.ngValue == true){
+    switchValue() {
+        if (this.ngValue === true) {
             this.ngValue = false;
         } else {
             this.ngValue = true;
@@ -123,7 +112,4 @@ export class CheckboxComponent implements AfterContentInit, AfterViewInit, DoChe
         this.setValueFromComponent(this.ngValue);
     }
 
-    log(info){
-        console.log(info);
-    }
 }

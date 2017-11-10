@@ -1,5 +1,5 @@
 export interface Select2Element {
-    text:string;
-    id:string;
+    text: string;
+    id: string;
     value?: any;
 }

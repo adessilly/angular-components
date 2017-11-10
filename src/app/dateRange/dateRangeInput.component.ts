@@ -1,13 +1,10 @@
 import {
-    Component, Input, Output, EventEmitter, ElementRef, SimpleChanges,
-    ViewChild, ViewChildren, QueryList, forwardRef, AfterViewInit
+    Component, Input, Output, EventEmitter,
+    ViewChild, forwardRef, AfterViewInit
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import {DateRange} from "./dateRange";
-
-declare var moment: any;
-declare var $: any;
+import {DateRange} from './dateRange';
 
 /*
  @author Adrien DESSILLY
@@ -23,47 +20,42 @@ declare var $: any;
 })
 export class DateRangeInputComponent implements AfterViewInit, ControlValueAccessor {
 
-    @Input()
-    required:boolean = false;
-    @Input()
-    readonly:boolean = false;
-    @Input()
-    hasError:boolean = false;
-    @Output()
-    touchedChange: any = new EventEmitter();
+    @Input() required = false;
+    @Input() readonly = false;
+    @Input() hasError = false;
+    @Output() touchedChange: any = new EventEmitter();
 
-    private innerDate:DateRange;
+    private innerDate: DateRange;
     private onChangeCallback: any;
     private onTouchedCallback: any;
 
-    private datepicker:any = null;
-    private simpleMode: boolean = true;
+    private datepicker: any = null;
+    private simpleMode = true;
 
-    @ViewChild('myDatePicker') datePickerChild:any;
+    @ViewChild('myDatePicker') datePickerChild: any;
 
     constructor() {}
 
     // Ici, il faut setter la date et notifier le datepicker
-    setValueFromParent(v:DateRange) {
+    setValueFromParent(v: DateRange) {
         this.innerDate = v;
-        if(this.datepicker) {
+        if (this.datepicker) {
             this.createDatepickerBootstrap();
         }
     }
 
     // Ici, il faut setter la date et notifier le parent
-    setValueFromDatepicker(startDate:Date, endDate:Date) {
+    setValueFromDatepicker(startDate: Date, endDate: Date) {
         this.innerDate.startDate = startDate;
         this.innerDate.endDate = endDate;
-        if(this.onChangeCallback) {
+        if (this.onChangeCallback) {
             this.onChangeCallback(Object.assign({}, this.innerDate));
         }
     }
 
-    ngAfterViewInit(){
+    ngAfterViewInit() {
         this.createDatepickerBootstrap();
 
-        let i=0;
         this.datePickerChild.nativeElement.onblur = () => {
             this.touchedChange.emit();
             this.onTouchedCallback();
@@ -71,32 +63,31 @@ export class DateRangeInputComponent implements AfterViewInit, ControlValueAcces
     }
 
     createDatepickerBootstrap() {
-        var self = this;
+        const self = this;
 
         let daterangevalue = Object.assign({}, this.innerDate);
-        if(self.innerDate && (self.innerDate.startDate == null || self.innerDate.endDate == null)) {
+        if (self.innerDate && (self.innerDate.startDate == null || self.innerDate.endDate == null)) {
             daterangevalue.startDate = new Date();
             daterangevalue.endDate = new Date();
         }
 
-        this.datepicker = $([this.datePickerChild.nativeElement]);
+        this.datepicker = jQuery([this.datePickerChild.nativeElement]);
         this.datepicker.daterangepicker(daterangevalue).on('hide.daterangepicker', function(ev, picker) {
-            //$(this).val('');
             let dateRange = self.datepicker.data('daterangepicker');
             self.setValueFromDatepicker( dateRange.startDate, dateRange.endDate );
         }).on('cancel.daterangepicker', function(ev, picker) {
-            $(this).val('');
+            jQuery(this).val('');
             self.setValueFromDatepicker( null, null );
         });
 
-        if(self.innerDate && (self.innerDate.startDate == null || self.innerDate.endDate == null)) {
+        if (self.innerDate && (self.innerDate.startDate == null || self.innerDate.endDate == null)) {
             this.datepicker.val('');
         }
 
     }
 
     togglePopup() {
-        this.datepicker.data("daterangepicker").show();
+        this.datepicker.data('daterangepicker').show();
     }
 
     // @Override ControlValueAccessor

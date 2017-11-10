@@ -1,24 +1,27 @@
-import { Component, Input , Output, EventEmitter, AfterContentInit, OnChanges, SimpleChanges, Inject, ElementRef } from '@angular/core';
+import {
+    Component,
+    Input
+} from '@angular/core';
 
 /**
-@author Adrien DESSILLY
-*/
+ @author Adrien DESSILLY
+ */
 @Component({
-	selector: 'loading-component',
-	template: `
-	<div class="loadable-component">
-	<div class="overlay" [class.loadingHidden]="!ngValue">
-			<i class="fa fa-refresh fa-spin"></i>
-	</div>
-	</div>
-	`,
-	styleUrls: [
-		'loading.style.css',
-	]
+    selector: 'loading-component',
+    template: `
+        <div class="loadable-component">
+            <div class="overlay" [class.loadingHidden]="!ngValue">
+                <i class="fa fa-refresh fa-spin"></i>
+            </div>
+        </div>
+    `,
+    styleUrls: [
+        'loading.style.css',
+    ]
 })
 export class LoadingComponent {
 
-	@Input()
-	ngValue:any;
+    @Input()
+    ngValue: any;
 
 }

@@ -1,94 +1,81 @@
-import {Component, Input, forwardRef, ViewChild} from "@angular/core";
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {Component, Input, forwardRef, ViewChild, AfterContentInit} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 /**
-	@author Adrien DESSILLY
-*/
+ @author Adrien DESSILLY
+ */
 @Component({
-	selector: 'textfield-component',
-	providers: [{
-		provide: NG_VALUE_ACCESSOR,
-		useExisting: forwardRef(() => TextfieldComponent),
-		multi: true
-	}],
-	templateUrl: 'textfield.template.html'
+    selector: 'textfield-component',
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => TextfieldComponent),
+        multi: true
+    }],
+    templateUrl: 'textfield.template.html'
 })
-export class TextfieldComponent implements ControlValueAccessor {
+export class TextfieldComponent implements ControlValueAccessor, AfterContentInit {
 
-	@Input()
-	width:string = "12";
-	@Input()
-	placeholder:string;
-	@Input()
-	label:string;
-	@Input()
-	id:string;
-	@Input()
-	required:boolean = false;
-	@Input()
-	readonly:boolean = false;
-	@Input()
-	hasError:boolean = false;
-	@Input()
-	message:string;
-	@Input()
-	type = 'text';
+    // propriétés pour les descendants
+    // ne devrait pas se trouver ici, mais si elles sont dans le descendants,
+    // les Input du parents ne sont pas transmis au descendants
+    @Input() rows: number;
+    @Input() width = '12';
+    @Input() placeholder: string;
+    @Input() label: string;
+    @Input() id: string;
+    @Input() required = false;
+    @Input() readonly = false;
+    @Input() hasError = false;
+    @Input() message: string;
+    @Input() type = 'text';
 
-	public ngValue:number;
-	public onChangeCallback: any;
-	public onTouchedCallback: any;
-	public simpleMode: boolean = true;
+    @ViewChild('inputText') inputText: any;
 
-	@ViewChild('inputText')
-	inputText:any;
+    public ngValue: number;
+    public onChangeCallback: any;
+    public onTouchedCallback: any;
+    public simpleMode = true;
+    public i = 0;
 
-	//propriétés pour les descendants
-	//ne devrait pas se trouver ici, mais si elles sont dans le descendants, les Input du parents ne sont pas transmis au descendants
-	@Input()
-	rows: number;
+    constructor() {}
 
-	constructor(){}
+    updateData(event) {
+        this.setValueFromField(event);
+    }
 
-	updateData(event) {
-		this.setValueFromField(event);
-	}
+    // @Override AfterContentInit
+    ngAfterContentInit() {
+        if (this.width && this.width.substring(0, 3) === 'col') {
+            this.simpleMode = false;
+        }
 
-	public i:number = 0;
+        this.inputText.nativeElement.onblur = () => {
+            this.onTouchedCallback();
+        };
+    }
 
-	// S'abonner au service observer quand le composant est intialisé
-	// @Override AfterContentInit
-	ngAfterContentInit() {
-		if (this.width && this.width.substring(0, 3) == "col") {
-			this.simpleMode = false;
-		}
+    setValueFromField(v: number) {
+        this.ngValue = v;
+        this.onChangeCallback(v);
+    }
 
-		this.inputText.nativeElement.onblur = () => {
-			this.onTouchedCallback();
-		};
-	}
+    setValueFromParent(v: number) {
+        this.ngValue = v;
+    }
 
-	setValueFromField(v:number) {
-		this.ngValue = v;
-		this.onChangeCallback(v);
-	}
+    // @Override ControlValueAccessor
+    writeValue(v: any) {
+        this.setValueFromParent(v);
+    }
 
-	setValueFromParent(v:number) {
-		this.ngValue = v;
-	}
+    // @Override ControlValueAccessor
+    registerOnChange(fn: any) {
+        this.onChangeCallback = fn;
+    }
 
-	// @Override ControlValueAccessor
-	writeValue(v: any) {
-		this.setValueFromParent(v);
-	}
-
-	// @Override ControlValueAccessor
-	registerOnChange(fn: any) {
-		this.onChangeCallback = fn;
-	}
-
-	// @Override ControlValueAccessor
-	registerOnTouched(fn: any) {
-		this.onTouchedCallback = fn;
-	}
+    // @Override ControlValueAccessor
+    registerOnTouched(fn: any) {
+        this.onTouchedCallback = fn;
+    }
 
 }

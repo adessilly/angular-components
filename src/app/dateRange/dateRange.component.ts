@@ -1,13 +1,9 @@
 import {
-    Component, Input, Output, EventEmitter, ElementRef, AfterContentInit, SimpleChanges,
-    ViewChild, ViewChildren, QueryList, forwardRef
+    Component, Input, ElementRef, AfterContentInit, forwardRef
 } from '@angular/core';
 
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import {DateRange} from "./dateRange";
-
-declare var moment: any;
-declare var $: any;
+import {DateRange} from './dateRange';
 
 /*
  @author Adrien DESSILLY
@@ -23,47 +19,39 @@ declare var $: any;
 })
 export class DateRangeComponent implements AfterContentInit, ControlValueAccessor {
 
-    @Input()
-    width:string = "12";
-    @Input()
-    label:string;
-    @Input()
-    id:string;
+    @Input() width = '12';
+    @Input() label: string;
+    @Input() id: string;
+    @Input() required = false;
+    @Input() readonly = false;
+    @Input() hasError = false;
+    @Input() message;
 
-    @Input()
-    required:boolean = false;
-    @Input()
-    readonly:boolean = false;
-    @Input()
-    hasError:boolean = false;
-    @Input()
-    message:string;
-
-    public innerDate:DateRange;
+    public innerDate: DateRange;
     public onChangeCallback: any;
-    public onTouchedCallback : any;
-    public simpleMode: boolean = true;
+    public onTouchedCallback: any;
+    public simpleMode = true;
 
-    constructor(private element:ElementRef) {}
+    constructor(private element: ElementRef) {}
 
     onChange($event) {
         this.setValueFromDatepicker(this.innerDate);
     }
 
     // Ici, il faut setter la date et notifier le datepicker
-    setValueFromParent(v:DateRange) {
+    setValueFromParent(v: DateRange) {
         this.innerDate = v;
     }
 
     // Ici, il faut setter la date et notifier le parent
-    setValueFromDatepicker(v:DateRange) {
-        if(this.onChangeCallback) {
+    setValueFromDatepicker(v: DateRange) {
+        if (this.onChangeCallback) {
             this.onChangeCallback(this.innerDate);
         }
     }
 
     ngAfterContentInit() {
-        if (this.width && this.width.substring(0, 3) == "col") {
+        if (this.width && this.width.substring(0, 3) === 'col') {
             this.simpleMode = false;
         }
     }
