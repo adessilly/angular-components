@@ -1,7 +1,7 @@
 {
   "name": "angular-components-lib",
   "author": "Adrien Dessilly",
-  "version": "2.0.24",
+  "version": "2.0.26",
   "license": "MIT",
   "module": "angular-components-lib.es5.js",
   "es2015": "angular-components-lib.js",

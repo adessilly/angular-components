@@ -4,9 +4,9 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
-/**
- @author phw
- */
+declare var jQuery: any;
+declare var bootstrap: any;
+
 @Component({
     selector: 'checkbox-component',
     providers: [{
