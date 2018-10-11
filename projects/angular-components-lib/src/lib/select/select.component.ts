@@ -8,6 +8,9 @@ import {
 } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
+declare var $: any;
+declare var jQuery: any;
+
 /**
 
   Select2 encapsulé dans Angular2 en lien bidirectionnel.

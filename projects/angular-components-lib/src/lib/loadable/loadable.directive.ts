@@ -1,5 +1,7 @@
 import {Directive, ElementRef, Input, OnChanges, SimpleChanges, AfterContentInit} from '@angular/core';
 
+declare var jQuery: any;
+
 /*
     Attribut rendant n'importe quel élément du DOM loadable
     Pré-requis :

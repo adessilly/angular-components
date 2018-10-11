@@ -4,6 +4,8 @@ import {
 import {SharedService} from './shared.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
+declare var jQuery: any;
+
 @Component({
     selector: 'modal-comp',
     template: `

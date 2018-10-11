@@ -6,6 +6,7 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 declare var moment: any;
+declare var jQuery: any;
 
 /*
  @author Adrien DESSILLY

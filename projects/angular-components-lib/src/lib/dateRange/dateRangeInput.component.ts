@@ -6,6 +6,8 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {DateRange} from './dateRange';
 
+declare var jQuery: any;
+
 /*
  @author Adrien DESSILLY
  */
