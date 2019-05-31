@@ -48,7 +48,7 @@ export class SelectComponent implements AfterContentInit, ControlValueAccessor, 
     @Input() hasError = false;
     @Input() message: string;
 
-    @ViewChild('select2') select2Html;
+    @ViewChild('select2', { static: true }) select2Html;
 
     public currentSelectValue: any;
     public simpleMode = true;

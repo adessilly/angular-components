@@ -56,7 +56,7 @@ declare var jQuery: any;
     `
 })
 export class ModalComponent {
-    @ViewChild('theBody', {read: ViewContainerRef}) theBody;
+    @ViewChild('theBody', { read: ViewContainerRef, static: true }) theBody;
 
     cmpRef: ComponentRef<any>;
     originalData: any = null;

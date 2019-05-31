@@ -37,7 +37,7 @@ export class DatePickerComponent implements AfterViewInit, ControlValueAccessor 
     private datepicker: any = null;
     private simpleMode = true;
 
-    @ViewChild('myDatePicker') datePickerChild: any;
+    @ViewChild('myDatePicker', { static: true }) datePickerChild: any;
 
     constructor() {}
 

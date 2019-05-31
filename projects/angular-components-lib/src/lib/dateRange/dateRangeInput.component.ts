@@ -34,7 +34,7 @@ export class DateRangeInputComponent implements AfterViewInit, ControlValueAcces
     private datepicker: any = null;
     private simpleMode = true;
 
-    @ViewChild('myDatePicker') datePickerChild: any;
+    @ViewChild('myDatePicker', { static: true }) datePickerChild: any;
 
     constructor() {}
 

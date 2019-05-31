@@ -37,7 +37,7 @@ export class SwitchViewComponent implements OnInit {
     @Output() onValidated: EventEmitter<BaseModal> = new EventEmitter<BaseModal>();
 
     // Référence vers la div dans laquelle doit être injecté le formulaire
-    @ViewChild('bodyBoxFormulaire', {read: ViewContainerRef}) bodyBoxFormulaire;
+    @ViewChild('bodyBoxFormulaire', { read: ViewContainerRef, static: true }) bodyBoxFormulaire;
 
     public arrowOpen = true;
     public cmpRef: ComponentRef<any>;

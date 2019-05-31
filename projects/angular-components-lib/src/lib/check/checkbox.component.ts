@@ -26,7 +26,7 @@ export class CheckboxComponent implements AfterContentInit, AfterViewInit, DoChe
     @Input() hasError = false;
     @Input() message: string;
 
-    @ViewChild('icheckElement')
+    @ViewChild('icheckElement', { static: true })
     icheckChildren: any;
     icheckElement: any = null;
 

@@ -29,7 +29,7 @@ export class TextfieldComponent implements ControlValueAccessor, AfterContentIni
     @Input() message: string;
     @Input() type = 'text';
 
-    @ViewChild('inputText') inputText: any;
+    @ViewChild('inputText', { static: true }) inputText: any;
 
     public ngValue: number;
     public onChangeCallback: any;
