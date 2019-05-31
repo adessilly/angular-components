@@ -7,8 +7,8 @@
   "es2015": "angular-components-lib.js",
   "typings": "angular-components-lib.d.ts",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
     "admin-lte": "2.4.2",
     "bootstrap": "^3.3.7",
     "bootstrap-daterangepicker": "^2.1.25",
